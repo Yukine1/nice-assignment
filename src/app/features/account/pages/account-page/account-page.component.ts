@@ -7,7 +7,7 @@ import { TransactionsService } from '../../../../core/services/transactions.serv
 import { BankStatement } from '../../../../utils/interfaces/bankStatement.interface';
 import { Account as AccountInterface } from '../../../../utils/interfaces/account.interface';
 import { Transaction } from '../../../../utils/interfaces/transaction.interface';
-import { TransactionsList } from '../../../../shared/components/transactions-list/transactions-list';
+import { TransactionsList } from '../../../../shared/components/transactions-list/transactions-list.component';
 
 @Component({
   selector: 'app-account-page',

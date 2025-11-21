@@ -14,8 +14,8 @@ import { Transaction } from '../../../utils/interfaces/transaction.interface';
     TagModule,
     DividerModule
   ],
-  templateUrl: './transactions-list.html',
-  styleUrl: './transactions-list.scss',
+  templateUrl: './transactions-list.component.html',
+  styleUrl: './transactions-list.component.scss',
 })
 export class TransactionsList {
   @Input() transactions: Transaction[] = [];

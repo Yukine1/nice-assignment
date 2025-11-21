@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TransactionsList } from './transactions-list';
+import { TransactionsList } from './transactions-list.component';
 
 describe('TransactionsList', () => {
   let component: TransactionsList;
