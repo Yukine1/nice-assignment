@@ -8,16 +8,16 @@ A beautiful single-page application (SPA) for viewing bank account information a
 
 ## 📋 Table of Contents
 
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Running the Application](#running-the-application)
-- [Project Structure](#project-structure)
-- [Configuration](#configuration)
-- [Development](#development)
-- [Building for Production](#building-for-production)
-- [Testing](#testing)
-- [Troubleshooting](#troubleshooting)
+- [Features](#-features)
+- [Prerequisites](#-prerequisites)
+- [Installation](#-installation)
+- [Running the Application](#-running-the-application)
+- [Project Structure](#-project-structure)
+- [Configuration](#-configuration)
+- [Development](#-development)
+- [Building for Production](#-building-for-production)
+- [Testing](#-testing)
+- [Troubleshooting](#-troubleshooting)
 
 ## ✨ Features
 
