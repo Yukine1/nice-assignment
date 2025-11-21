@@ -1,0 +1,46 @@
+<div class="transactions-container">
+  <h2 class="transactions-title">
+    <i class="pi pi-list"></i>
+    Recent Transactions
+  </h2>
+
+  @if (transactions.length === 0) {
+    <div class="no-transactions">
+      <i class="pi pi-inbox"></i>
+      <p>No transactions found</p>
+    </div>
+  } @else {
+    <div class="transactions-list">
+      @for (transaction of transactions; track $index) {
+        <div class="transaction-item" [class.credit]="isCredit(transaction)" [class.debit]="!isCredit(transaction)">
+          <div class="transaction-icon">
+            @if (isCredit(transaction)) {
+              <i class="pi pi-arrow-down"></i>
+            } @else {
+              <i class="pi pi-arrow-up"></i>
+            }
+          </div>
+
+          <div class="transaction-details">
+            <div class="transaction-header">
+              <span class="counterparty">{{ getCounterparty(transaction) }}</span>
+              <span class="amount" [class.credit-amount]="isCredit(transaction)" [class.debit-amount]="!isCredit(transaction)">
+                {{ formatAmount(transaction?.amount, isCredit(transaction)) }}
+              </span>
+            </div>
+
+            <div class="transaction-footer">
+              <span class="description">{{ transaction?.description || 'No description' }}</span>
+              <span class="date">{{ formatDate(transaction?.date) }}</span>
+            </div>
+          </div>
+        </div>
+
+        @if (!$last) {
+          <p-divider />
+        }
+      }
+    </div>
+  }
+</div>
+
