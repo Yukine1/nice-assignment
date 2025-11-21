@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { AccountPageComponent } from './features/account/pages/account-page/account-page.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [AccountPageComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
