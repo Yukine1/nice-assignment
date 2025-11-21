@@ -1,0 +1,64 @@
+<div class="account-page">
+  <!-- Account Banner Section -->
+  <div class="account-banner">
+    @if (isLoading()) {
+      <div class="banner-skeleton">
+        <p-skeleton width="200px" height="2rem" styleClass="mb-3"></p-skeleton>
+        <p-skeleton width="300px" height="1.5rem" styleClass="mb-2"></p-skeleton>
+        <p-skeleton width="250px" height="3rem"></p-skeleton>
+      </div>
+    } @else if (error()) {
+      <div class="error-message">
+        <i class="pi pi-exclamation-triangle"></i>
+        <p>{{ error() }}</p>
+        <p-button
+          label="Retry"
+          icon="pi pi-refresh"
+          (onClick)="loadBankStatement()"
+          severity="secondary"
+        />
+      </div>
+    } @else if (accountData()) {
+      <div class="account-info">
+        <div class="account-header">
+          <div class="user-avatar">
+            <i class="pi pi-user"></i>
+          </div>
+          <div class="user-details">
+            <h1 class="account-name">{{ accountData()?.name || 'Unknown User' }}</h1>
+            <p class="account-iban">
+              <i class="pi pi-credit-card"></i>
+              {{ accountData()?.iban || 'N/A' }}
+            </p>
+          </div>
+        </div>
+
+        <div class="balance-section">
+          <span class="balance-label">Current Balance</span>
+          <div class="balance-amount">
+            <span class="currency-symbol">€</span>
+            <span class="amount">{{ formatAmount(accountData()?.balance) }}</span>
+            <span class="currency-code">{{ currency() || 'EUR' }}</span>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Transactions Section -->
+  <div class="transactions-section">
+    @if (isLoading()) {
+      <div class="transactions-skeleton">
+        <p-skeleton width="100%" height="60px" styleClass="mb-3"></p-skeleton>
+        <p-skeleton width="100%" height="60px" styleClass="mb-3"></p-skeleton>
+        <p-skeleton width="100%" height="60px" styleClass="mb-3"></p-skeleton>
+      </div>
+    } @else if (!error() && transactions().length > 0) {
+      <app-transactions-list
+        [transactions]="transactions()"
+        [currency]="currency()"
+      />
+    }
+  </div>
+</div>
+

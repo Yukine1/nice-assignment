@@ -1,0 +1,215 @@
+.account-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  background: var(--p-surface-ground);
+
+  .account-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+    color: white;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .banner-skeleton {
+      position: relative;
+      z-index: 1;
+
+      ::ng-deep .p-skeleton {
+        background: rgba(255, 255, 255, 0.2);
+
+        &::after {
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+      }
+    }
+
+    .error-message {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+
+      i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        opacity: 0.9;
+      }
+
+      p {
+        font-size: 1.1rem;
+        margin: 0.5rem 0 1.5rem;
+      }
+    }
+
+    .account-info {
+      position: relative;
+      z-index: 1;
+
+      .account-header {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+
+        .user-avatar {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(10px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2rem;
+          border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .user-details {
+          flex: 1;
+
+          .account-name {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          }
+
+          .account-iban {
+            font-size: 1rem;
+            margin: 0;
+            opacity: 0.95;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.5px;
+          }
+        }
+      }
+
+      .balance-section {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+        .balance-label {
+          display: block;
+          font-size: 0.9rem;
+          opacity: 0.9;
+          margin-bottom: 0.5rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+
+        .balance-amount {
+          display: flex;
+          align-items: baseline;
+          gap: 0.5rem;
+
+          .currency-symbol {
+            font-size: 1.5rem;
+            font-weight: 600;
+          }
+
+          .amount {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          }
+
+          .currency-code {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-left: 0.25rem;
+          }
+        }
+      }
+    }
+  }
+
+  .transactions-section {
+    .transactions-skeleton {
+      background: var(--p-surface-0);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .account-page {
+    padding: 1rem;
+
+    .account-banner {
+      padding: 1.5rem;
+
+      .account-info {
+        .account-header {
+          flex-direction: column;
+          text-align: center;
+          gap: 1rem;
+
+          .user-avatar {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+          }
+
+          .user-details {
+            .account-name {
+              font-size: 1.5rem;
+            }
+
+            .account-iban {
+              font-size: 0.875rem;
+              justify-content: center;
+            }
+          }
+        }
+
+        .balance-section {
+          padding: 1rem;
+
+          .balance-amount {
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .amount {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .account-page {
+    .account-banner {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
